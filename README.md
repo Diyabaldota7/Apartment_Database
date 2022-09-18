@@ -16,7 +16,7 @@ The goal of our project is to make a unified solution for people to find and boo
 	9. Pets allowed (y/n)
 	10. Broker info 
 	11. Utilities(electricity, gas, trash, hot water) 
-	12. Distance from Uni and schools		
+	12. Distance from University and schools		
 	13.Type of Apt
 	14. Security type
 	15.Number of people on lease
