@@ -5,7 +5,7 @@ The goal of our project is to make a unified solution for people to find and boo
 + Data Preprocessing for removing the redundancies in the collected data.
 + To generate an optimal system that provides the user the best suitable apartment options for their set preferences. 
 #### The features of our dataset:
- 1. Sr no
+    1. Sr no
 	2. Apt no, Floor
 	3. Rent
 	4. Locality
