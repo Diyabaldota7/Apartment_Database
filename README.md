@@ -15,17 +15,16 @@ The goal of our project is to make a unified solution for people to find and boo
 	6. Number of Rooms and Bath
 	7. Furnished (y/n)
 	8. Parking (y/n)
-	9. Pets allowed (y/n)
-	10. Broker info 
-	11. Utilities(electricity, gas, trash, hot water) 
-	12. Distance from University and schools		
-	13. Type of Apartment
-	14. Security type
-	15. Number of people on lease
-	16. Laundry in unit or in basement
-	17. Lease start or end date
-	18. Availability(y/n)
-	19. Transportation
+	9. Pets allowed (y/n) 
+	10. Utilities(electricity, gas, trash, hot water) 
+	11. Distance from University and schools		
+	12. Type of Apartment
+	13. Security type
+	14. Number of people on lease
+	15. Laundry in unit or in basement
+	16. Lease start or end date
+	17. Availability(y/n)
+	18. Transportation
 
 
 
