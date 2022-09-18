@@ -23,7 +23,7 @@ The goal of our project is to make a unified solution for people to find and boo
 	16. Laundry in unit or in basement
 	17. Lease start or end date
 	18. Availability(y/n)
-	19. Transportation(temp)
+	19. Transportation
 
 
 
