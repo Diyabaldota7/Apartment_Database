@@ -40,6 +40,10 @@ information that has been posted on the website and store it in a local database
 
 ## UML Diagram
 
+<br>
+
+<img src="UMLdiagram.png" width="1000" height="500"/><br><br>
+
 ## Explaination on some of the design decisions:
 
 - ‘BostonRentals’ table has everything that is posted on the twitter platform with the keyword that the user inputs and has properties 
