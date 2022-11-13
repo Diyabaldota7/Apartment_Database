@@ -32,5 +32,5 @@ A python code on Google Colab which uses Twitter API v2 for scrapping data from 
 (in this case #Bostonrentals and #Bostonapartments). The goal is to obtain data from twitter based on the availability of any apartment retal
 information that has been posted on the website and store it in a local database server. 
 
-##UML Diagram
+## UML Diagram
 
