@@ -54,6 +54,8 @@ information that has been posted on the website and store it in a local database
 - 'Tweets_df’ table shows the last 50 tweets of the set username. It has attributed such as created_at, id, text which can be scraped
    using the username of a user, in this case ‘Apartments Boston’.
    
+
+   
 ## SQL STATEMENTS:
 
 ### Use case: User searches for rentals in Boston:
@@ -299,5 +301,9 @@ Alternate Path: No results for the specifies requirements
 Error:No searched found
 
 
+## ER Diagram:
+<br>
+
+<img src="ERdiagram.png" width="1000" height="500"/><br><br>
 
 
