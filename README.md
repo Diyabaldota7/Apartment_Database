@@ -44,6 +44,73 @@ information that has been posted on the website and store it in a local database
 
 <img src="UMLdiagram.png" width="1000" height="500"/><br><br>
 
+## Sql Conceptual Statements
+
+
+### User Table:
+
+CREATE TABLE `User` (
+  `User_id` VARCHAR(10),
+  `name` VARCHAR(20),
+  `description` VARCHAR(100),
+  `followers_count` INT,
+  `following_count` INT,
+   PRIMARY KEY  (`User_id`)
+);
+
+### Tweets Table:
+
+CREATE TABLE `Tweets` (
+  `tweet_id` INT NOT NULL AUTO_INCREMENT,
+  `Twitter_handle` VARCHAR(10),
+  `tweet_text` VARCHAR(140),
+  `created_at` DATETIME,
+   PRIMARY KEY  (`tweet_id`)
+);
+
+### Tweet_Url Table:
+
+CREATE TABLE `Tweet_Url` (
+  `tweet_id` INT NOT NULL,
+  ‘rental_id’ INT NOT NULL,
+  PRIMARY KEY  (`rental_id`)
+);
+
+### User_Account Table:
+
+CREATE TABLE `User_Account` (
+  ‘User_acc’ INT NOT NULL
+  `Twitter_handle` VARCHAR(10) NOT NULL,
+  `profile_image_url` VARCHAR(10),
+  `password` VARCHAR(10),
+   PRIMARY KEY  (`Twitter_handle`)
+);
+
+### Follower_count Table:
+
+CREATE TABLE `Follower_count` (
+  ‘rental_id’ INT NOT NULL,
+  `created_at` DATETIME,
+  ‘followers_count’’ INT,
+  PRIMARY KEY  (`‘rental_id’`)
+);
+
+CREATE TABLE `Boston Rentals` ( 
+  ‘rental_id’ INT NOT NULL,
+  rental_location` VARCHAR(10),
+  rental_text` VARCHAR(10) 
+  `created_at` DATETIME,
+  ‘followers_count’’ INT,
+  PRIMARY KEY  (`‘rental_id’`)
+);
+
+CREATE TABLE `Tweet_df` ( 
+  ‘rental_id’ INT NOT NULL,
+  `created_at` DATETIME,
+   rental_text` VARCHAR(10)
+   PRIMARY KEY  (`‘rental_id’`)
+);
+
 ## Explaination on some of the design decisions:
 
 - ‘BostonRentals’ table has everything that is posted on the twitter platform with the keyword that the user inputs and has properties 
