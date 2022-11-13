@@ -1,3 +1,9 @@
+# NUID:
+Hardik Sodhani : 002770306
+Rucha Chotalia : 002711888
+Aakash Rajawat : 002764127
+Diya Baldota   : 002747966
+
 # Apartment Rental System
 The goal of our project is to make a unified solution for people to find and book the best rental apartments according to their set of preferences with filters that allow them to look for the distance to their universities or workplace, their preferred locality and also fit in their budget, in and around Boston.
 
