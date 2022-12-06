@@ -32,8 +32,7 @@ CREATE TABLE dmddapt1 (
     Id int,
     Price int,
     type varchar(255),
-    
-);
+    );
 
 ### DMDD APT2 Table:
 
@@ -82,107 +81,107 @@ SELECT dmddapt1.id, dmddapt2.beds, dmddapt2.sqfeet
 FROM dmddapt1
 INNER JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id;
 
-### Use Case 2
+### Use Case 2:
 SELECT dmddapt1.id, dmddapt2.beds, dmddapt2.laundry_options 
 FROM dmddapt1
 LEFT JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id;
 
-### Use Case 3
+### Use Case 3:
 SELECT dmddapt1.id, dmddapt2.region, dmddapt2.sqfeet
 FROM dmddapt2
 RIGHT JOIN dmddapt1 ON dmddapt1.id=dmddapt2.id ;
 
-### Use Case 4
+### Use Case 4:
 SELECT dmddapt1.id, dmddapt2.region, dmddapt2.sqfeet
 FROM dmddapt2
 INNER JOIN dmddapt1 ON dmddapt1.id=dmddapt2.id 
 ORDER BY dmddapt2.sqfeet DESC;
 
-### Use Case 5
+### Use Case 5:
 SELECT dmddapt1.type,  dmddapt2.sqfeet
 FROM dmddapt2
 INNER JOIN dmddapt1 ON dmddapt1.id=dmddapt2.id ;
 
-### Use Case 6
+### Use Case 6:
 SELECT AVG(dmddapt1.price)
 FROM dmddapt2
 INNER JOIN dmddapt1 ON dmddapt1.id=dmddapt2.id ;
 
-### Use Case 7
+### Use Case 7:
 SELECT state, count(image_url) as count
 FROM dmddapt4
 GROUP BY state;
 
-### Use Case 8
+### Use Case 8:
 SELECT COUNT(id) as count, region
 FROM dmddapt2
 GROUP BY region;
 
-### Use Case 9
+### Use Case 9:
 SELECT dmddapt1.id, dmddapt2.beds, dmddapt2.sqfeet 
 FROM dmddapt1
 INNER JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id
 where dmddapt2.laundry_options like '%laundry in bldg%' or dmddapt2.laundry_options like '%laundry on site%';
 
-### Use Case 10
+### Use Case 10:
 SELECT dmddapt1.id, dmddapt1.price, dmddapt1.type, dmddapt2.region 
 FROM dmddapt1
 INNER JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id
 where dmddapt2.region = 'Boston' and dmddapt1.type like '%apartment%';
 
-### Use Case 11
+### Use Case 11:
 SELECT *
 FROM dmddapt2
 JOIN dmddapt3 ON dmddapt2.id=dmddapt3.id
 where dmddapt2.region='Boston' and dmddapt3.cats_allowed=1  ;
 
-### Use Case 12
+### Use Case 12:
 SELECT *
 FROM dmddapt1
 JOIN dmddapt4 ON dmddapt1.id=dmddapt4.id
 where dmddapt1.type = 'apartment' and dmddapt4.image_url IS NOT NULL;
 
-### Use Case 13
+### Use Case 13:
 SELECT dmddapt1.id, dmddapt1.price, dmddapt1.type, dmddapt2.region 
 FROM dmddapt1
 JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id
 where dmddapt2.region = 'Boston' and dmddapt1.type like '%apartment%';
 
-### Use Case 14
+### Use Case 14:
 SELECT dmddapt1.id, dmddapt1.price, dmddapt2.region 
 FROM dmddapt1
 JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id
 where dmddapt2.sqfeet > 700 and dmddapt1.type like '%apartment%'
 ORDER BY dmddapt1.price DESC;
 
-### Use Case 16
+### Use Case 16:
 SELECT dmddapt1.id, dmddapt1.price, dmddapt2.beds,dmddapt2.laundry_options 
 FROM dmddapt1
 JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id
 where dmddapt2.laundry_options='w/d in unit';
 
-### Use Case 17
+### Use Case 17:
 SELECT dmddapt1.id, dmddapt1.price, dmddapt2.beds,dmddapt2.beds 
 FROM dmddapt1
 JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id
 where dmddapt2.beds>1;
 
-### Use Case 16
+### Use Case 16:
 SELECT DISTINCT dmddapt2.region, dmddapt2.sqfeet
 FROM dmddapt2
 RIGHT JOIN dmddapt1 ON dmddapt1.id=dmddapt2.id ;
 
-### Use Case 18
+### Use Case 18:
 SELECT dmddapt1.id, dmddapt3.cats_allowed, dmddapt3.cats_allowed
 FROM dmddapt3
 RIGHT JOIN dmddapt1 ON dmddapt1.id=dmddapt3.id ;
 
-### Use Case 19
+### Use Case 19:
 SELECT * FROM dmddapt1 
 where price>100 
 order by price desc;
 
-### Use Case 20
+### Use Case 20:
 Select * from dmddapt2
 where beds >= 2 and laundry_options = 'w/d in unit'
 
