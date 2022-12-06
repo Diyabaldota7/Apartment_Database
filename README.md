@@ -26,13 +26,6 @@ The goal of our project is to make a unified solution for people to find and boo
 	12. State
 
 
-## UML Diagram
-
-<br>
-
-<img src="UMLdiagram.png" width="1000" height="500"/><br><br>
-
-
 ### DMDD APT1 Table:
 
 CREATE TABLE dmddapt1 (
@@ -196,4 +189,4 @@ where beds >= 2 and laundry_options = 'w/d in unit'
 ## ER Diagram:
 <br>
 
-<img src="ER diagram.png" width="1000" height="500"/><br><br>
+<img src="ERdiagram.png" width="1000" height="500"/><br><br>
