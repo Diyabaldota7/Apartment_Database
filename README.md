@@ -190,3 +190,6 @@ where beds >= 2 and laundry_options = 'w/d in unit'
 <br>
 
 <img src="ERdiagram.png" width="1000" height="500"/><br><br>
+
+
+### NOTE: The csv file of the dataset is inside the folder 'Dmdd _Assignment_3 2.zip'
