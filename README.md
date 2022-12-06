@@ -196,4 +196,4 @@ where beds >= 2 and laundry_options = 'w/d in unit'
 ## ER Diagram:
 <br>
 
-<img src="ERdiagram.png" width="1000" height="500"/><br><br>
+<img src="ER diagram.png" width="1000" height="500"/><br><br>
