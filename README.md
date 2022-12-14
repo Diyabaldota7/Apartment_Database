@@ -70,6 +70,88 @@ CREATE TABLE dmddapt4 (
 - 'DMDD APT3’ table shows Number of Baths, No. of Cats Allowed, No. of Dogs Allowed.
 - 'DMDD APT4' table shows the images of the apartment and the State in which the apartment is located.
 
+# View Statement:
+
+### View Statement 1:
+CREATE VIEW  beds AS(  
+SELECT dmddapt1.id, dmddapt2.beds, dmddapt2.sqfeet FROM dmddapt1 INNER JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id);
+
+### View Statement 2:
+CREATE VIEW  laundry AS( 
+SELECT dmddapt1.id, dmddapt2.beds, dmddapt2.laundry_options FROM dmddapt1 LEFT JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id); 
+
+### View Statement 3:
+CREATE VIEW  region AS( 
+SELECT dmddapt1.id, dmddapt2.region, dmddapt2.sqfeet FROM dmddapt2 RIGHT JOIN dmddapt1 ON dmddapt1.id=dmddapt2.id) ; 
+
+### View Statement 4:
+CREATE VIEW  sqfeet AS( 
+SELECT dmddapt1.id, dmddapt2.region, dmddapt2.sqfeet FROM dmddapt2 INNER JOIN dmddapt1 ON dmddapt1.id=dmddapt2.id ORDER BY dmddapt2.sqfeet DESC); 
+
+### View Statement 5:
+CREATE VIEW  area AS( 
+SELECT dmddapt1.type, dmddapt2.sqfeet FROM dmddapt2 INNER JOIN dmddapt1 ON dmddapt1.id=dmddapt2.id) ; 
+
+### View Statement 6:
+CREATE VIEW  price AS( 
+SELECT AVG(dmddapt1.price) FROM dmddapt2 INNER JOIN dmddapt1 ON dmddapt1.id=dmddapt2.id) ; 
+
+### View Statement 7:
+CREATE VIEW  state AS( 
+SELECT state, count(image_url) as count FROM dmddapt4 GROUP BY state); 
+
+### View Statement 8:
+CREATE VIEW  id AS( 
+SELECT COUNT(id) as count, region FROM dmddapt2 GROUP BY region); 
+
+### View Statement 9:
+CREATE VIEW  carpet AS( 
+SELECT dmddapt1.id, dmddapt2.beds, dmddapt2.sqfeet FROM dmddapt1 INNER JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id where dmddapt2.laundry_options like '%laundry in bldg%' or dmddapt2.laundry_options like '%laundry on site%'); 
+
+### View Statement 10:
+CREATE VIEW  bhk AS( 
+SELECT dmddapt1.id, dmddapt1.price, dmddapt1.type, dmddapt2.region FROM dmddapt1 INNER JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id where dmddapt2.region = 'Boston' and dmddapt1.type like '%apartment%'); 
+
+### View Statement 11:
+CREATE VIEW  apperance AS( 
+SELECT dmddapt1.id, dmddapt2.region, dmddapt2.sqfeet FROM dmddapt2 RIGHT JOIN dmddapt1 ON dmddapt1.id=dmddapt2.id) ; 
+
+### View Statement 12:
+CREATE VIEW  apartment AS( 
+SELECT * FROM dmddapt1 JOIN dmddapt4 ON dmddapt1.id=dmddapt4.id where dmddapt1.type = 'apartment' and dmddapt4.image_url IS NOT NULL); 
+
+### View Statement 13:
+CREATE VIEW  boston AS( 
+SELECT dmddapt1.id, dmddapt1.price, dmddapt1.type, dmddapt2.region FROM dmddapt1 JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id where dmddapt2.region = 'Boston' and dmddapt1.type like '%apartment%'); 
+
+### View Statement 14:
+CREATE VIEW  morethanprice AS( 
+SELECT dmddapt1.id, dmddapt1.price, dmddapt2.region FROM dmddapt1 JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id where dmddapt2.sqfeet > 700 and dmddapt1.type like '%apartment%' ORDER BY dmddapt1.price DESC); 
+
+### View Statement 15:
+CREATE VIEW  unit AS( 
+SELECT dmddapt1.id, dmddapt1.price, dmddapt2.beds,dmddapt2.laundry_options FROM dmddapt1 JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id where dmddapt2.laundry_options='w/d in unit'); 
+
+### View Statement 16:
+CREATE VIEW  bedsthan AS( 
+SELECT dmddapt1.id, dmddapt1.price, dmddapt2.beds,dmddapt2.beds FROM dmddapt1 JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id where dmddapt2.beds>1);
+
+### View Statement 17:
+CREATE VIEW  regioning AS( 
+SELECT DISTINCT dmddapt2.region, dmddapt2.sqfeet FROM dmddapt2 RIGHT JOIN dmddapt1 ON dmddapt1.id=dmddapt2.id) ; 
+
+### View Statement 18:
+CREATE VIEW  petting AS( 
+SELECT dmddapt1.id, dmddapt3.cats_allowed, dmddapt3.cats_allowed FROM dmddapt3 RIGHT JOIN dmddapt1 ON dmddapt1.id=dmddapt3.id ); 
+
+### View Statement 19:
+CREATE VIEW  bedss AS( 
+SELECT dmddapt1.id, dmddapt1.price, dmddapt2.beds,dmddapt2.beds FROM dmddapt1 JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id where dmddapt2.beds>1); 
+
+### View Statement 20:
+CREATE VIEW  idssss AS( 
+SELECT dmddapt1.id, dmddapt2.beds, dmddapt2.laundry_options FROM dmddapt1 LEFT JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id); 
+
 
 # USE CASES:
 
