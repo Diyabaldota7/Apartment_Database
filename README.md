@@ -13,125 +13,62 @@ The goal of our project is to make a unified solution for people to find and boo
 + To generate an optimal system that provides the user the best suitable apartment options for their set preferences. 
 
 ## The features of our dataset:
-    1. Sr no
-	2. Apt no, Floor
-	3. Rent
-	4. Locality
+    1. ID
+	2. Price
+	3. Type of Apartment
+	4. Region
 	5. Square ft. area
-	6. Number of Rooms and Bath
-	7. Furnished (y/n)
-	8. Parking (y/n)
-	9. Pets allowed (y/n) 
-	10. Utilities(electricity, gas, trash, hot water) 
-	11. Distance from University and schools		
-	12. Type of Apartment
-	13. Security type
-	14. Number of people on lease
-	15. Laundry in unit or in basement
-	16. Lease start or end date
-	17. Availability(y/n)
-	18. Transportation
-
-# Normalisation techniques using 1NF, 2NF, 3NF:
-
-Normalisation techniques on SQL Databases in python programming language to check whether the table is in 1NF, 2NF or in 3NF.
+	6. Number of Beds
+	7. Laundry Option
+	8. Number of Baths
+	9. Number of Cats Allowed
+	10. Number of Dogs Allowed
+	11. Image URL		
+	12. State
 
 
-### User Table:
+### DMDD APT1 Table:
 
-CREATE TABLE `User` (
-  `User_id` VARCHAR(10),
-  `name` VARCHAR(20),
-  `description` VARCHAR(100),
-  `followers_count` INT,
-  `following_count` INT,
-   PRIMARY KEY  (`User_id`)
+CREATE TABLE dmddapt1 (
+    Id int,
+    Price int,
+    type varchar(255),
+    );
+
+### DMDD APT2 Table:
+
+CREATE TABLE dmddapt2 (
+    Id int,
+    Region varchar(255),
+    sqft INT,
+    bed INT,
+    laundry_options varchar(255),
 );
 
-### Tweets Table:
+### DMDD APT3 Table:
 
-CREATE TABLE `Tweets` (
-  `tweet_id` INT NOT NULL AUTO_INCREMENT,
-  `Twitter_handle` VARCHAR(10),
-  `tweet_text` VARCHAR(140),
-  `created_at` DATETIME,
-   PRIMARY KEY  (`tweet_id`)
+CREATE TABLE dmddapt3 (
+    Id int,
+    Baths int,
+    cats_allowed varchar(255),
+    dogs_allowed varchar(255)
 );
 
-### Tweet_Url Table:
+### DMDD APT4 Table:
 
-CREATE TABLE `Tweet_Url` (
-  `tweet_id` INT NOT NULL,
-  ‘rental_id’ INT NOT NULL,
-  PRIMARY KEY  (`rental_id`)
+CREATE TABLE dmddapt4 (
+    Id int,
+    image_url varchar(500),
+    state varchar(255)
 );
 
-### User_Account Table:
-
-CREATE TABLE `User_Account` (
-  ‘User_acc’ INT NOT NULL
-  `Twitter_handle` VARCHAR(10) NOT NULL,
-  `profile_image_url` VARCHAR(10),
-  `password` VARCHAR(10),
-   PRIMARY KEY  (`Twitter_handle`)
-);
-
-### Follower_count Table:
-
-CREATE TABLE `Follower_count` (
-  ‘rental_id’ INT NOT NULL,
-  `created_at` DATETIME,
-  ‘followers_count’’ INT,
-  PRIMARY KEY  (`‘rental_id’`)
-);
-
-CREATE TABLE `Boston Rentals` ( 
-  ‘rental_id’ INT NOT NULL,
-  rental_location` VARCHAR(10),
-  rental_text` VARCHAR(10) 
-  `created_at` DATETIME,
-  ‘followers_count’’ INT,
-  PRIMARY KEY  (`‘rental_id’`)
-);
-
-CREATE TABLE `Tweet_df` ( 
-  ‘rental_id’ INT NOT NULL,
-  `created_at` DATETIME,
-   rental_text` VARCHAR(10)
-   PRIMARY KEY  (`‘rental_id’`)
-);
 
 ## Explaination on some of the design decisions:
 
-- ‘BostonRentals’ table has everything that is posted on the twitter platform with the keyword that the user inputs and has properties 
-   like (created_at, id, text, media, location), all the new tweets can be scraped and added to this table using the scripting from keyword 
-   using Twitter API v2.
-- ‘BostonFollow’ table has the count of followers the user has gained per tweet. This table can be altered as and when there 
-  is new tweet posted by the user.
-- 'Tweets_df’ table shows the last 50 tweets of the set username. It has attributed such as created_at, id, text which can be scraped
-   using the username of a user, in this case ‘Apartments Boston’.
-   
-
-   
-## SQL STATEMENTS:
-
-### Use case: User searches for rentals in Boston:
-SELECT * from bostonrentals where location="Boston, MA";
-
-
-### Use case: Search on twitter with a specific price range:
-SELECT * from bostonrentals where Text like '%3,000%'
-
-### Use case: Search on twitter with a specific house type:
-SELECT * FROM bostonrentals WHERE Text like '%5 Bedrooms 2 Baths%'
-
-### Use case: Search on twitter with a specific area of preference:
-SELECT * FROM bostonrentals ORDER BY Location ASC
-
-### Use case: User is redirected to their specific search:
-SELECT *
-FROM bostonrentals
-WHERE NOT (Text LIKE '%RT%');
+- ‘DMDD APT1’ table has the id, price and type of the apartment (eg. 768798123002, 3000, Condo).
+- ‘DMDD APT2’ table has the area, sqft., Number of Beds, Laundry Option.
+- 'DMDD APT3’ table shows Number of Baths, No. of Cats Allowed, No. of Dogs Allowed.
+- 'DMDD APT4' table shows the images of the apartment and the State in which the apartment is located.
 
 
 # USE CASES:
