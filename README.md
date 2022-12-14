@@ -32,19 +32,9 @@ The goal of our project is to make a unified solution for people to find and boo
 	17. Availability(y/n)
 	18. Transportation
 
-# A Python code on Scrapping twitter data for Boston Apartment rentals:
+# Normalisation techniques using 1NF, 2NF, 3NF:
 
-A python code on Google Colab which uses Twitter API v2 for scrapping data from Twitter based on the Keywords entered by he user
-(in this case #Bostonrentals and #Bostonapartments). The goal is to obtain data from twitter based on the availability of any apartment retal
-information that has been posted on the website and store it in a local database server. 
-
-## UML Diagram
-
-<br>
-
-<img src="UMLdiagram.png" width="1000" height="500"/><br><br>
-
-## Sql Conceptual Statements
+Normalisation techniques on SQL Databases in python programming language to check whether the table is in 1NF, 2NF or in 3NF.
 
 
 ### User Table:
