@@ -133,229 +133,117 @@ SELECT *
 FROM bostonrentals
 WHERE NOT (Text LIKE '%RT%');
 
+
 # USE CASES:
 
-### 1. User Registers and creates an account
-Description: User registers for an account on NoHome
-Actors: User
-Precondition: When the user wants to rent a place, they will first register 
-Steps:
-Actor action – User will request for registration
-System Responses – If customer information is correct then customer is registered and use case ends
-Post Condition: Customer is successfully registered
-Alternate Path: The customer request is not correct, the system throws an error
-Error: User information is incorrect
+### Use Case 1:
+SELECT dmddapt1.id, dmddapt2.beds, dmddapt2.sqfeet 
+FROM dmddapt1
+INNER JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id;
 
-### 2. Search on twitter for rentals in Boston
-Description: User searches for rentals in Boston
-Actors: User
-Precondition: The user will search for rentals when they  are already registered.
-Steps:
-Actor action – User will use hashtags like #bostonrentals in the search tab
-System Responses –  If the customer search is valid they will get all the tweets with the hashtag #bostonrentals
-Post Condition: Customer gets all the rentals in Boston with hashtag #bostonrentals
-Alternate Path: The Customer request has no results, the system shows an error
-Error: Shows no results for the search
+### Use Case 2:
+SELECT dmddapt1.id, dmddapt2.beds, dmddapt2.laundry_options 
+FROM dmddapt1
+LEFT JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id;
 
-### 3. Search on twitter with a specific price range
-Description: User searches for rentals with a specific price range in Boston
-Actors: User
-Precondition: The user will search for rentals with specific price range in Boston, only once they login to their twitter account
-Steps:
-Actor action – User will use twitter and look for rentals in their budget in the search tab
-System Responses –  If the customer search is valid they will get all the tweets with the hashtag #bostonrentals
-Post Condition: Customer gets all the rentals in Boston with hashtag #bostonrentals
-Alternate Path: The Customer request has no results, the system shows an error
-Error: Shows no results for the search
+### Use Case 3:
+SELECT dmddapt1.id, dmddapt2.region, dmddapt2.sqfeet
+FROM dmddapt2
+RIGHT JOIN dmddapt1 ON dmddapt1.id=dmddapt2.id ;
 
-### 4. Search on twitter with a specific house type
-Description: User searches for rentals with a specific house type in Boston
-Actors: User
-Precondition: Once the user logs into their account they will be able to search for rentals with their specific house type in Boston
-Steps:
-Actor action – User will input their preferences of house type(eg.apartment, home, studio) in thee search tab 
-System Responses –
-Post Condition:The user will get all the results with the specified condition
-Alternate Path:No results are found and the system will ask them to search again
-Error:Show no results for the search
+### Use Case 4:
+SELECT dmddapt1.id, dmddapt2.region, dmddapt2.sqfeet
+FROM dmddapt2
+INNER JOIN dmddapt1 ON dmddapt1.id=dmddapt2.id 
+ORDER BY dmddapt2.sqfeet DESC;
 
-### 5. Search on twitter with a specific area of preference
-Description: User searches for rentals with their preferred vicinity in Boston
-Actors:User
-Precondition: Once the user logs into their account they will be able to search for rentals with their specific areas in Boston
-Steps: 
-Actor action – User will input their area preference and the search tab
-System Responses –
-Post Condition: The user will get all the results with the specified condition
-Alternate Path: No results are found and the system will ask them to search again
-Error: Show no results
+### Use Case 5:
+SELECT dmddapt1.type,  dmddapt2.sqfeet
+FROM dmddapt2
+INNER JOIN dmddapt1 ON dmddapt1.id=dmddapt2.id ;
 
-### 6. User is redirected to their specific URL through twitter
-Description: User clicks on the URL mentioned in the tweet and they will be re-directed to apartments site where 
-Actors: User
-Precondition: User will first have to login to their twitter account then they will click on the URL and they will be directed to the site        
-Steps:
-Actor action –  User will view the tweet and click on the URL mentioned in the tweet
-System Responses –
-Post Condition: The user will be successfully be redirected to the site
-Alternate Path: The user will not be redirected to the right page
-Error: 404 Page not found
+### Use Case 6:
+SELECT AVG(dmddapt1.price)
+FROM dmddapt2
+INNER JOIN dmddapt1 ON dmddapt1.id=dmddapt2.id ;
 
-### 7. User will be able to book an appointment for viewing the flat through the URL
-Description: Once the user is redirected to the site they will be able to book a viewing appointment through their site
-Actors:User
-Precondition: User will first have to click on the link through the tweet after logging into their twitter account
-Steps:
-Actor action – User will book an appointment for viewing from the link
-System Responses –
-Post Condition:The viewing appointment will be booked suitable to the user’s time
-Alternate Path: The appointment will fail to book or no appointments available
-Error: No appointments booked
+### Use Case 7:
+SELECT state, count(image_url) as count
+FROM dmddapt4
+GROUP BY state;
 
-### 8. Look for reviews for a place previously rented by a different user
-Description: The user will be able to view the reviews of people who have previously rented the place
-Actors:User
-Precondition:The user will have to log into their account and then view the reviews under the tweet
-Steps:
-Actor action – The user will have to check the tweets which have the reviews
-System Responses –
-Post Condition:The user will be able to read all reviews under the tweet
-Alternate Path: No reviews for the rental
-Error: No results found
+### Use Case 8:
+SELECT COUNT(id) as count, region
+FROM dmddapt2
+GROUP BY region;
 
-### 9. Search on twitter for a house having certain set of amenities
-Description: The user will be able to search for specific amenities according to the user’s requirements  
-Actors: User
-Precondition: The user will have to log into their twitter account and then search for their requirements 
-Steps:
-Actor action –The user will be able to search in the search tab the amenities that fit their requirements
-System Responses –
-Post Condition: The user will be get all the search results that fir their conditions
-Alternate Path:The search results won’t be found
-Error: No search for the user’s conditions
+### Use Case 9:
+SELECT dmddapt1.id, dmddapt2.beds, dmddapt2.sqfeet 
+FROM dmddapt1
+INNER JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id
+where dmddapt2.laundry_options like '%laundry in bldg%' or dmddapt2.laundry_options like '%laundry on site%';
 
-### 10. Search on twitter for a rental with a certain lease requirements
-Description: The user will be able to search for lease criteria according to the users requirements
-Actors: User
-Precondition:The user will have to log into their twitter account and then search for their requirements 
-Steps:
-Actor action – The user will be able to search in the search tab the lease requirements that the user wants
-System Responses –
-Post Condition: The search result will be displayed
-Alternate Path: No results for the specified requirements
-Error:No searches found
+### Use Case 10:
+SELECT dmddapt1.id, dmddapt1.price, dmddapt1.type, dmddapt2.region 
+FROM dmddapt1
+INNER JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id
+where dmddapt2.region = 'Boston' and dmddapt1.type like '%apartment%';
 
-### 11. Search for a rental with specific building amenities
-Description: The user will be able to search for specific amenities in the building according to the user’s requirements  
-Actors: User
-Precondition: The user will have to log into their twitter account and then search for their requirements 
-Steps:
-Actor action – The user will be able to search in the search tab the amenities that fit their requirements
-System Responses –
-Post Condition: The search results will be found
-Alternate Path: No results for the specifies requirements
-Error:No searched found
+### Use Case 11:
+SELECT *
+FROM dmddapt2
+JOIN dmddapt3 ON dmddapt2.id=dmddapt3.id
+where dmddapt2.region='Boston' and dmddapt3.cats_allowed=1  ;
 
+### Use Case 12:
+SELECT *
+FROM dmddapt1
+JOIN dmddapt4 ON dmddapt1.id=dmddapt4.id
+where dmddapt1.type = 'apartment' and dmddapt4.image_url IS NOT NULL;
 
+### Use Case 13:
+SELECT dmddapt1.id, dmddapt1.price, dmddapt1.type, dmddapt2.region 
+FROM dmddapt1
+JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id
+where dmddapt2.region = 'Boston' and dmddapt1.type like '%apartment%';
 
-### 12. Search for a rental with universities around them 
-Description:The user will be able to search for universities around the rental vicinity
-Actors: User
-Precondition: The user will have to log into their twitter account and then search for their requirements 
-Steps:
-Actor action – The user will be able to search in the search tab the universities around the vicinity
-System Responses –
-Post Condition: The search results will be found
-Alternate Path: No results for the specifies requirements
-Error:No searched found
+### Use Case 14:
+SELECT dmddapt1.id, dmddapt1.price, dmddapt2.region 
+FROM dmddapt1
+JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id
+where dmddapt2.sqfeet > 700 and dmddapt1.type like '%apartment%'
+ORDER BY dmddapt1.price DESC;
 
-### 13. Look for how many days the listing has been posted
-Description:The user will be able to see since how many days the listing has been posted
-Actors:User
-Precondition: The user will have to log into their twitter account and then see since how many days the listing has been posted
-Steps:
-Actor action – The user will be able to see the time since the listing has been posted
-System Responses –
-Post Condition: The time since posted will be displayed 
-Alternate Path: No timeline mentioned
-Error: No listings found
+### Use Case 16:
+SELECT dmddapt1.id, dmddapt1.price, dmddapt2.beds,dmddapt2.laundry_options 
+FROM dmddapt1
+JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id
+where dmddapt2.laundry_options='w/d in unit';
 
-### 14. Look for a rental with public transport near them
-Description:The user will be able to search for public transport around the rental vicinity
-Actors: User
-Precondition: The user will have to log into their twitter account and then search for their requirements 
-Steps:
-Actor action – The user will be able to search in the search tab the public transport around the vicinity
-System Responses –
-Post Condition: The search results will be found
-Alternate Path: No results for the specifies requirements
-Error:No searched found
+### Use Case 17:
+SELECT dmddapt1.id, dmddapt1.price, dmddapt2.beds,dmddapt2.beds 
+FROM dmddapt1
+JOIN dmddapt2 ON dmddapt1.id=dmddapt2.id
+where dmddapt2.beds>1;
 
-### 15. Look for a apartment types of the rental
-Description: User searches for rentals with a specific apartment  type(studio,1bhk,2bhk, 3bhk etc) in Boston
-Actors: User
-Precondition: Once the user logs into their account they will be able to search for rentals with their specific apartment type in Boston
-Steps:
-Actor action – User will input their preferences of apartment type(studio,1bhk,2bhk, 3bhk etc) in thee search tab 
-System Responses –
-Post Condition:The user will get all the results with the specified condition
-Alternate Path:No results are found and the system will ask them to search again
-Error:Show no results for the search
+### Use Case 16:
+SELECT DISTINCT dmddapt2.region, dmddapt2.sqfeet
+FROM dmddapt2
+RIGHT JOIN dmddapt1 ON dmddapt1.id=dmddapt2.id ;
 
-### 16. Look for rental closer to the grocery stores
-Description:The user will be able to search for grocery stores around the rental vicinity
-Actors: User
-Precondition: The user will have to log into their twitter account and then search for their requirements 
-Steps:
-Actor action – The user will be able to search in the search tab the grocery stores around the vicinity
-System Responses –
-Post Condition: The search results will be found
-Alternate Path: No results for the specifies requirements
-Error:No searched found
+### Use Case 18:
+SELECT dmddapt1.id, dmddapt3.cats_allowed, dmddapt3.cats_allowed
+FROM dmddapt3
+RIGHT JOIN dmddapt1 ON dmddapt1.id=dmddapt3.id ;
 
-### 17. Look for a rental that has the closest medical centers
-Description:The user will be able to search for the medical centers closest to the rental vicinity
-Actors: User
-Precondition: The user will have to log into their twitter account and then search for their requirements 
-Steps:
-Actor action – The user will be able to search in the search tab the medical centers closest to the the vicinity
-System Responses –
-Post Condition: The search results will be found
-Alternate Path: No results for the specifies requirements
-Error:No searched found
+### Use Case 19:
+SELECT * FROM dmddapt1 
+where price>100 
+order by price desc;
 
-### 18.Look for rental with extra amenities like fireplace, balcony
-Description: The user will be able to search for specific amenities in the rental (fireplace, balcony etc)  according to the user’s requirements  
-Actors: User
-Precondition: The user will have to log into their twitter account and then search for their requirements 
-Steps:
-Actor action – The user will be able to search in the search tab the amenities that fit their requirements
-System Responses –
-Post Condition: The search results will be found
-Alternate Path: No results for the specifies requirements
-Error:No searched found
-
-### 19.Security type for the rental unit:
-Description: The user will be able to search for the security type (key, tap etc) for the rental
-Actors: User
-Precondition: The user will have to log into their twitter account and then search for their requirements 
-Steps:
-Actor action – The user will be able to search in the search tab the security requirements that fit their requirements
-System Responses –
-Post Condition: The search results will be found
-Alternate Path: No results for the specifies security type
-Error:No searched found
-
-### 20.Look for a rental closer to the airport:
-Description:The user will be able to search for the airport closest to the rental vicinity
-Actors: User
-Precondition: The user will have to log into their twitter account and then search for their requirements 
-Steps:
-Actor action – The user will be able to search in the search tab the airport closest to the the vicinity
-System Responses –
-Post Condition: The search results will be found
-Alternate Path: No results for the specifies requirements
-Error:No searched found
+### Use Case 20:
+Select * from dmddapt2
+where beds >= 2 and laundry_options = 'w/d in unit'
 
 
 ## ER Diagram:
